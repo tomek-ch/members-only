@@ -9,6 +9,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const session = require('express-session');
 const User = require('./models/User');
 const bcrypt = require('bcryptjs');
+const flash = require('connect-flash');
 
 const app = express();
 
@@ -18,19 +19,23 @@ const db = mongoose.connection;
 db.on("error", console.error.bind(console, "mongo connection error"));
 
 app.use(session({ secret: "cats", resave: false, saveUninitialized: true }));
+// app.use(cookieParser('secretString'));
+app.use(flash());
+
 app.use(passport.initialize());
 app.use(passport.session());
+
 passport.use(
     new LocalStrategy(async (username, password, done) => {
         try {
             const user = await User.findOne({ username });
-            if (!user) return done(null, false, { msg: "Incorrect username" });
+            if (!user) return done(null, false, { message: "Incorrect username" });
     
             const passwordMatches = await bcrypt.compare(password, user.password);
             if (passwordMatches) {
                 return done(null, user);
             } else {
-                return done(null, false, { msg: "Incorrect password" });
+                return done(null, false, { message: "Incorrect password" });
             }
         } catch (e) {
             done(e);
