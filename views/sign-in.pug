@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    form(method='post')
+        input(type='text' placeholder='Username' name='username' value=user ? user.username : '')
+        input(type='password' placeholder='Password' name='password' value=user ? user.password : '')
+        button(type='submit') Sign in
+
+        p Don't have an account yet? #[a(href='sign-up') Sign up]
+
+    ul
+        each error in errors || []
+            li= error.msg
+

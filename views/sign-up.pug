@@ -1,0 +1,17 @@
+extends layout
+
+block content
+    form(method='post')
+        input(type='text' placeholder='First name' name='firstName' value=user ? user.firstName : '')
+        input(type='text' placeholder='Last name' name='lastName' value=user ? user.lastName : '')
+        input(type='text' placeholder='Username' name='username' value=user ? user.username : '')
+        input(type='password' placeholder='Password' name='password' value=user ? user.password : '')
+        input(type='password' placeholder='Confirm password' name='confirmPassword' value=user ? confirmPassword : '')
+        button(type='submit') Sign up
+
+        p Already have an account? #[a(href='sign-in') Sign in]
+
+    ul
+        each error in errors || []
+            li= error.msg
+            
