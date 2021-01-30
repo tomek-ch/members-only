@@ -1,5 +1,11 @@
 extends layout
 
 block content
-    h1 Hello World
-    a(href='sign-out') Sign out
+
+    if user
+        h3 Welcome #{user.username}
+        form(method='post')
+            input(placeholder='Message title' name='title')
+            textarea(placeholder='Your message' name='message')
+            button.btn(type='submit') Post
+    

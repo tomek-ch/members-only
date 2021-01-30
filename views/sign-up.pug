@@ -7,9 +7,9 @@ block content
         input(type='text' placeholder='Username' name='username' value=user ? user.username : '')
         input(type='password' placeholder='Password' name='password' value=user ? user.password : '')
         input(type='password' placeholder='Confirm password' name='confirmPassword' value=user ? confirmPassword : '')
-        button(type='submit') Sign up
+        button.btn(type='submit') Sign up
 
-        p Already have an account? #[a(href='sign-in') Sign in]
+    //- p Already have an account? #[a(href='sign-in') Sign in]
 
     ul
         each error in errors || []

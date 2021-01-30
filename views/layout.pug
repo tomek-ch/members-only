@@ -6,5 +6,13 @@ html
         meta(charset='UTF-8')
         meta(name='viewport' content='width=device-width, initial-scale=1.0')
     body
-        main
-            block content
+        nav
+            h1
+                a(href='/') Members Only
+            if !user
+                div.row
+                    a.btn(href='/sign-in') Sign in
+                    a.btn(href='/sign-up') Sign up
+            else
+                a.btn(href='/sign-out') Sign out
+        block content

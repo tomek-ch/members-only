@@ -45,7 +45,6 @@ module.exports = [
 
         const { firstName, lastName, username, password, confirmPassword } = req.body;
         const user = { firstName, lastName, username, password };
-        // console.log(await User.find({ username }));
 
         const errors = validationResult(req).array();
         if (errors.length)
