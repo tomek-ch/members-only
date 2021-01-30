@@ -18,5 +18,7 @@ block content
             h3=message.title
             p=message.text
         if user
-            .author #{message.author.firstName} #{message.author.lastName}
+            .details
+                .author #{message.author.firstName} #{message.author.lastName}
+                .time=message.time
     
