@@ -31,6 +31,6 @@ module.exports = [
             }).save().catch(next);
         }
         
-        res.render('index', { user });
+        res.redirect('/');
     },
 ]
