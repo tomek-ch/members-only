@@ -4,10 +4,15 @@ block content
 
     if user
         h3 Welcome #{user.username}
-        form(method='post')
-            input(placeholder='Message title' name='title')
-            textarea(placeholder='Your message' name='text')
-            button.btn(type='submit') Post
+        if user.isMember
+            form(method='post')
+                input(placeholder='Message title' name='title')
+                textarea(placeholder='Your message' name='text')
+                button.btn(type='submit') Post
+        else
+            form(method='post' action='authorize')
+                input(placeholder='Enter passcode to become a member')
+                button.btn(type='submit') Submit
         if errors
             ul
                 each error in errors
@@ -17,7 +22,7 @@ block content
         .message
             h3=message.title
             p=message.text
-        if user
+        if user && user.isMember
             .details
                 .author #{message.author.firstName} #{message.author.lastName}
                 .time=message.time
