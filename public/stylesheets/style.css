@@ -55,7 +55,7 @@ nav {
 .details {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 1.5em;
+    margin-bottom: 0.5em;
 }
 
 .row {
@@ -69,4 +69,10 @@ nav {
     border-radius: 5px;
     margin-top: 1em;
     margin-bottom: 0.5em;
+}
+
+.remove {
+    margin-bottom: 1.5em;
+    width: fit-content;
+    margin-left: auto;
 }
