@@ -21,7 +21,7 @@ module.exports = [
         const { user } = req;
         const { title, text } = req.body;
 
-        if (user) {
+        if (user?.isMember) {
 
             await new Message({
                 title,

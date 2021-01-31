@@ -8,10 +8,13 @@ const signInPost = require('../controllers/signInPost');
 const mainPage = require('../controllers/mainPage');
 const signOut = require('../controllers/signOut');
 const messageCreate = require('../controllers/messageCreate');
+const authorize = require('../controllers/authorize');
 
 router.get('/', mainPage);
 router.post('/', messageCreate);
+
 router.get('/sign-out', signOut);
+router.post('/authorize', authorize);
 
 router.get('/sign-up', signUpGet);
 router.post('/sign-up', signUpPost);
